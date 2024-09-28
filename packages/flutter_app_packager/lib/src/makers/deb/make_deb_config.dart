@@ -275,7 +275,7 @@ class MakeDebConfig extends MakeLinuxPackageConfig {
       'CONTROL': {
         'Maintainer': maintainer,
         'Package': packageName,
-        'Version': includeBuildNumber ? appVersion.toString() : appBuildName,
+        'Version': appBuildName,
         'Section': section,
         'Priority': priority,
         'Architecture': _getArchitecture(),
