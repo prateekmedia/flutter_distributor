@@ -72,7 +72,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: 'Publishers',
       collapsed: false,
       items: [
-        { text: 'App Center', link: 'publishers/appcenter' },
         { text: 'App Store', link: 'publishers/appstore' },
         { text: 'fir.im', link: 'publishers/fir' },
         {

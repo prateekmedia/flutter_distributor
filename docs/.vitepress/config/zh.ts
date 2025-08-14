@@ -97,7 +97,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: '发布器',
       collapsed: false,
       items: [
-        { text: 'App Center', link: 'publishers/appcenter' },
         { text: 'App Store', link: 'publishers/appstore' },
         { text: 'fir.im', link: 'publishers/fir' },
         {

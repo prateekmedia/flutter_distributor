@@ -71,7 +71,7 @@ class AppPackagePublisherGithub extends AppPackagePublisher {
     PublishGithubConfig publishConfig,
   ) async {
     Response resp = await _dio.get(
-      'https://api.github.com/repos/${publishConfig.repoOwner}/${publishConfig.repoName}/releases',
+      'https://api.github.com/repos/${publishConfig.repository}/releases',
     );
     List relist = (resp.data as List?) ?? [];
     var release = relist.firstWhere(
@@ -84,11 +84,12 @@ class AppPackagePublisherGithub extends AppPackagePublisher {
   /// Create release
   Future<String?> _createRelease(PublishGithubConfig publishConfig) async {
     Response resp = await _dio.post(
-      'https://api.github.com/repos/${publishConfig.repoOwner}/${publishConfig.repoName}/releases',
+      'https://api.github.com/repos/${publishConfig.repository}/releases',
       data: {
         'tag_name': publishConfig.releaseTitle,
         'name': publishConfig.releaseTitle,
-        'draft': true,
+        'draft': publishConfig.releaseDraft,
+        'prerelease': publishConfig.releasePrerelease,
       },
     );
     return resp.data?['upload_url'];
@@ -99,7 +100,7 @@ class AppPackagePublisherGithub extends AppPackagePublisher {
     PublishGithubConfig publishConfig,
   ) async {
     Response resp = await _dio.get(
-      'https://api.github.com/repos/${publishConfig.repoOwner}/${publishConfig.repoName}/releases/latest',
+      'https://api.github.com/repos/${publishConfig.repository}/releases/latest',
     );
     return resp.data?['upload_url'];
   }

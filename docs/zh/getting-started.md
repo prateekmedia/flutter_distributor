@@ -49,7 +49,7 @@ variables:
   PGYER_API_KEY: 'your api key'
 ```
 
-Check out the [Publishers](/zh/publishers/appcenter) documentation for all possible publishers and how to configure them.
+Check out the [Publishers](/zh/publishers/appstore) documentation for all possible publishers and how to configure them.
 
 ### 配置发布项
 

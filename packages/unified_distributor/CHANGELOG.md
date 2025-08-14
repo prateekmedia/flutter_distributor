@@ -1,3 +1,13 @@
+## 0.2.2
+
+* feat: Support `app-version` argument to override version from pubspec.yaml (future versions will not read from pubspec.yaml)
+
+## 0.2.1
+
+* GitHub publisher supports `repo` argument to replace `repo-owner` and `repo-name` arguments
+* GitHub publisher supports `release-draft` and `release-prerelease` arguments
+* Remove AppCenter publisher
+
 ## 0.2.0
 
 * feat: Support ohos platform.

@@ -44,7 +44,6 @@
 
 ### 支持的分发平台
 
-- [App Center](https://fastforge.dev/zh/publishers/appcenter)
 - [App Store](https://fastforge.dev/zh/publishers/appstore)
 - [Firebase](https://fastforge.dev/zh/publishers/firebase)
 - [Firebase Hosting](https://fastforge.dev/zh/publishers/firebase-hosting)

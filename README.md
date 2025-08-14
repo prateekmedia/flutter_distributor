@@ -44,7 +44,6 @@ Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
 ### Supported Distribution Platforms
 
-- [App Center](https://fastforge.dev/en/publishers/appcenter)
 - [App Store](https://fastforge.dev/en/publishers/appstore)
 - [Firebase](https://fastforge.dev/en/publishers/firebase)
 - [Firebase Hosting](https://fastforge.dev/en/publishers/firebase-hosting)
