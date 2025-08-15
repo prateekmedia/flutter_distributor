@@ -41,8 +41,10 @@ class AppPackagePublisherMinio extends AppPackagePublisher {
         useSSL: true,
       );
 
-      String saveKey =
-          '${publishConfig.savekeyPrefix}${file.path.split('/').last}';
+      String saveKey = file.path.split('/').last;
+      if ((publishConfig.savekeyPrefix ?? '').isNotEmpty) {
+        saveKey = '${publishConfig.savekeyPrefix}/$saveKey';
+      }
 
       int total = file.lengthSync();
 

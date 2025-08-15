@@ -1,3 +1,7 @@
+## 0.2.4
+
+* fix: The `savekey-prefix` argument in the minio publisher is now properly ignored when empty
+
 ## 0.2.3
 
 * feat: Support `minio` publisher

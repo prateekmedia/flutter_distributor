@@ -61,6 +61,7 @@ class PublishMinioConfig extends PublishConfig {
       endPoint: endPoint!,
       accessKey: accessKey!,
       secretKey: secretKey!,
+      region: region,
       bucket: bucket!,
       savekeyPrefix: savekeyPrefix,
     );
