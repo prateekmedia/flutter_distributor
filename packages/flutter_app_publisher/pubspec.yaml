@@ -1,6 +1,6 @@
 name: flutter_app_publisher
 description: Flutter app publisher
-version: 0.6.2
+version: 0.6.3
 homepage: https://fastforge.dev
 repository: https://github.com/fastforgedev/fastforge/tree/main/packages/flutter_app_publisher
 
@@ -11,6 +11,7 @@ dependencies:
   dio: ^5.3.4
   googleapis: ^13.2.0
   googleapis_auth: ^1.6.0
+  minio: ^3.5.8
   parse_app_package: ^0.6.0
   pub_semver: ^2.2.0
   pubspec_parse: ^1.1.0

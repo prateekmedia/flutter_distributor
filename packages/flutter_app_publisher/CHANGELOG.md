@@ -1,3 +1,7 @@
+## 0.6.3
+
+* feat: Support `minio` publisher
+
 ## 0.6.2
 
 * Publisher now supports `app-version` argument to override version from pubspec.yaml (future versions will not read from pubspec.yaml)

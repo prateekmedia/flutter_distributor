@@ -146,6 +146,15 @@ class CommandPublish extends Command {
       defaultsTo: 'false',
     );
 
+    // Minio
+    argParser.addSeparator('minio');
+    argParser.addOption('minio-endpoint', valueHelp: '');
+    argParser.addOption('minio-access-key', valueHelp: '');
+    argParser.addOption('minio-secret-key', valueHelp: '');
+    argParser.addOption('minio-region', valueHelp: '');
+    argParser.addOption('minio-bucket', valueHelp: '');
+    argParser.addOption('minio-savekey-prefix', valueHelp: '');
+
     // PlayStore
     argParser.addSeparator('playstore');
     argParser.addOption('playstore-package-name', valueHelp: '');
@@ -219,6 +228,12 @@ class CommandPublish extends Command {
       'github-release-title': argResults?['github-release-title'],
       'github-release-draft': argResults?['github-release-draft'],
       'github-release-prerelease': argResults?['github-release-prerelease'],
+      'minio-endpoint': argResults?['minio-endpoint'],
+      'minio-access-key': argResults?['minio-access-key'],
+      'minio-secret-key': argResults?['minio-secret-key'],
+      'minio-region': argResults?['minio-region'],
+      'minio-bucket': argResults?['minio-bucket'],
+      'minio-savekey-prefix': argResults?['minio-savekey-prefix'],
       'playstore-package-name': argResults?['playstore-package-name'],
       'playstore-track': argResults?['playstore-track'],
       'qiniu-bucket': argResults?['qiniu-bucket'],

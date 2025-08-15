@@ -11,6 +11,7 @@ class FlutterAppPublisher {
     AppPackagePublisherFirebase(),
     AppPackagePublisherFirebaseHosting(),
     AppPackagePublisherGithub(),
+    AppPackagePublisherMinio(),
     AppPackagePublisherPgyer(),
     AppPackagePublisherPlayStore(),
     AppPackagePublisherQiniu(),

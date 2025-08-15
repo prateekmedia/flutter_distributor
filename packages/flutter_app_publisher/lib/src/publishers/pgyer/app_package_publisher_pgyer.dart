@@ -5,7 +5,7 @@ import 'package:flutter_app_publisher/src/api/app_package_publisher.dart';
 
 const kEnvPgyerApiKey = 'PGYER_API_KEY';
 
-/// pgyer doc [https://www.pgyer.com/doc/view/api#uploadApp]
+/// pgyer doc [https://www.pgyer.com/doc/view/api#fastUploadApp]
 class AppPackagePublisherPgyer extends AppPackagePublisher {
   @override
   String get name => 'pgyer';
