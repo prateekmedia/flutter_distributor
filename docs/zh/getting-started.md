@@ -22,7 +22,7 @@ Fastforge 是一款全能的 Flutter 应用打包和发布工具，为您提供�
 ## 主要特性
 
 - 🚀 一键打包：支持 Android APK/AAB、iOS IPA、OpenHarmony HAP/APP 等多种格式
-- 📦 多平台发布：支持 App Store、Google Play、Firebase、蒲公英、fir.im 等
+- 📦 多平台发布：支持 App Store、App Gallery、Google Play、Firebase、蒲公英、fir.im 等
 - 🔄 CI/CD 集成：完美支持 GitHub Actions、GitLab CI 等持续集成平台
 - 🛠 灵活配置：支持多环境、多 flavor、自定义构建参数
 

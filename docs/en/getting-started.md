@@ -22,7 +22,7 @@ Fastforge is an all-in-one Flutter application packaging and distribution tool, 
 ## Key Features
 
 - 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, OpenHarmony HAP/APP and more
-- 📦 Multi-Platform Release: Support for App Store, Google Play, Firebase, Pgyer, fir.im, etc.
+- 📦 Multi-Platform Release: Support for App Store, App Gallery, Google Play, Firebase, Pgyer, fir.im, etc.
 - 🔄 CI/CD Integration: Perfect integration with GitHub Actions, GitLab CI, and more
 - 🛠 Flexible Configuration: Support for multiple environments, flavors, and custom build arguments
 

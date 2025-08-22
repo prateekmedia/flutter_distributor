@@ -21,6 +21,7 @@ class CommandPublish extends Command {
       'targets',
       aliases: ['target'],
       valueHelp: [
+        'appgallery',
         'appstore',
         'fir',
         'firebase',
@@ -40,6 +41,14 @@ class CommandPublish extends Command {
         'The version of the app',
         'Must follow semantic versioning format, e.g., 1.0.0, 2.1.3-beta.1',
       ].join('\n'),
+    );
+
+    // AppGallery
+    argParser.addSeparator('appgallery');
+    argParser.addOption(
+      'appgallery-app-id',
+      valueHelp: '',
+      help: 'The unique ID of the application on AppGallery.',
     );
 
     // Firebase
@@ -214,6 +223,7 @@ class CommandPublish extends Command {
 
     Map<String, String?> publishArguments = {
       'app-version': argResults?['app-version'],
+      'appgallery-app-id': argResults?['appgallery-app-id'],
       'firebase-app': argResults?['firebase-app'],
       'firebase-release-notes': argResults?['firebase-release-notes'],
       'firebase-release-notes-file': argResults?['firebase-release-notes-file'],
