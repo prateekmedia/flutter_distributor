@@ -1,3 +1,7 @@
+## 0.6.5
+
+* MakeDebConfig Add StartupWMClass support #290
+
 ## 0.6.0
 
 * feat: Support ohos platform.

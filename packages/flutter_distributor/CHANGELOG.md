@@ -1,3 +1,8 @@
+## 0.6.5
+
+* MakeDebConfig Add StartupWMClass support #290
+* feat: Add AppGallery publisher support
+
 ## 0.6.2
 
 * feat: Support `app-version` argument to override version from pubspec.yaml (future versions will not read from pubspec.yaml)
@@ -92,7 +97,7 @@
 
 ## 0.3.3
 
-* [apk-builer] fix apk not found 
+* [apk-builer] fix apk not found
 
 ## 0.3.2
 

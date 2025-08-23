@@ -1,3 +1,8 @@
+## 0.2.5
+
+* MakeDebConfig Add StartupWMClass support #290
+* feat: Add AppGallery publisher support
+
 ## 0.2.4
 
 * fix: The `savekey-prefix` argument in the minio publisher is now properly ignored when empty

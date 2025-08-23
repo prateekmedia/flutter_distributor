@@ -1,3 +1,7 @@
+## 0.6.5
+
+* feat: Add AppGallery publisher support
+
 ## 0.6.4
 
 * fix: The `savekey-prefix` argument in the minio publisher is now properly ignored when empty
