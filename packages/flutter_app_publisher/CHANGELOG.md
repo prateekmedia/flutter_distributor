@@ -1,3 +1,7 @@
+## 0.6.6
+
+* feat: add comprehensive pgyer upload parameters support #297
+
 ## 0.6.5
 
 * feat: Add AppGallery publisher support

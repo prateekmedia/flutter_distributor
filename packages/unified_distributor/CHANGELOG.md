@@ -1,3 +1,7 @@
+## 0.2.6
+
+* feat: add comprehensive pgyer upload parameters support #297
+
 ## 0.2.5
 
 * MakeDebConfig Add StartupWMClass support #290
