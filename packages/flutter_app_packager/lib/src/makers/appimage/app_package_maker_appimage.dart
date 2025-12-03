@@ -129,8 +129,13 @@ class AppPackageMakerAppImage extends AppPackageMaker {
 
         if (mkdirProcessRes.exitCode != 0) throw MakeError();
 
+        final iconBytes = await iconFile.readAsBytes();
+        final decodedIcon = img.decodeImage(iconBytes);
+        if (decodedIcon == null) {
+          throw MakeError('Failed to decode icon: ${makeConfig.icon}');
+        }
         final icon = img.copyResize(
-          img.decodeImage(iconFile.readAsBytesSync())!,
+          decodedIcon,
           width: size,
           height: size,
           interpolation: img.Interpolation.average,
