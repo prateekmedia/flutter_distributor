@@ -141,7 +141,7 @@ class AppPackageMakerAppImage extends AppPackageMaker {
           interpolation: img.Interpolation.average,
         );
         final newIconFile =
-            File(path.join(iconDir, '${makeConfig.appBinaryName}.png'));
+            File(path.join(iconDir, '${makeConfig.appName}.png'));
         await newIconFile.writeAsBytes(img.encodePng(icon));
       }
 
