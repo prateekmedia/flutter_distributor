@@ -111,6 +111,7 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
     this.optDependencies,
     this.options,
     this.startupNotify = false,
+    this.startupWMClass,
     this.groups = const ['default'],
     this.licenses = const ['unknown'],
     this.icon,
@@ -120,9 +121,9 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
     this.conflicts,
     this.replaces,
     this.supportedMimeType,
-  })  : _postinstallScripts = postinstallScripts ?? [],
-        _postupgradeScripts = postupgradeScripts ?? [],
-        _postremoveScripts = postuninstallScripts ?? [];
+  }) : _postinstallScripts = postinstallScripts ?? [],
+       _postupgradeScripts = postupgradeScripts ?? [],
+       _postremoveScripts = postuninstallScripts ?? [];
 
   factory MakePacmanConfig.fromJson(Map<String, dynamic> map) {
     return MakePacmanConfig(
@@ -177,6 +178,7 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
           ? List.castFrom<dynamic, String>(map['categories'])
           : null,
       startupNotify: map['startup_notify'],
+      startupWMClass: map['startup_wm_class'] as String?,
       genericName: map['generic_name'],
       installedSize: map['installed_size'],
       icon: map['icon'],
@@ -195,6 +197,7 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
   String? metainfo;
   String? genericName;
   bool startupNotify;
+  String? startupWMClass;
   List<String>? options;
   List<String>? dependencies;
   List<String>? optDependencies;
@@ -210,15 +213,15 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
   List<String>? categories;
 
   List<String> get postinstallScripts => [
-        'ln -s /usr/share/$appBinaryName/$appBinaryName /usr/bin/$appBinaryName',
-        'chmod +x /usr/bin/$appBinaryName',
-        ..._postinstallScripts,
-      ];
+    'ln -s /usr/share/$appBinaryName/$appBinaryName /usr/bin/$appBinaryName',
+    'chmod +x /usr/bin/$appBinaryName',
+    ..._postinstallScripts,
+  ];
 
   List<String> get postuninstallScripts => [
-        'rm /usr/bin/$appBinaryName',
-        ..._postremoveScripts,
-      ];
+    'rm /usr/bin/$appBinaryName',
+    ..._postremoveScripts,
+  ];
 
   List<String> get postupgradeScripts => _postupgradeScripts;
 
@@ -236,10 +239,12 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
         'arch': '(${_getArchitecture()})',
         'url': pubspec.homepage,
         'options': options != null ? "(${options!.join(', ')})" : null,
-        'depends':
-            dependencies != null ? "(${dependencies!.join(', ')})" : null,
-        'optdepends':
-            optDependencies != null ? "(${optDependencies!.join(', ')})" : null,
+        'depends': dependencies != null
+            ? "(${dependencies!.join(', ')})"
+            : null,
+        'optdepends': optDependencies != null
+            ? "(${optDependencies!.join(', ')})"
+            : null,
         'conflicts': conflicts != null ? "(${conflicts!.join(', ')})" : null,
         'replaces': replaces != null ? "(${replaces!.join(', ')})" : null,
         'provides': provides != null ? "(${provides!.join(', ')})" : null,
@@ -263,6 +268,7 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
             ? '${keywords!.join(';')};'
             : null,
         'StartupNotify': startupNotify,
+        'StartupWMClass': startupWMClass,
       }..removeWhere((key, value) => value == null),
     };
   }
@@ -270,27 +276,24 @@ class MakePacmanConfig extends MakeLinuxPackageConfig {
   Map<String, String> toFilesString() {
     final json = toJson();
     final pkginfoFile =
-        '${(json['PKGINFO'] as Map<String, dynamic>).entries.map(
-              (e) => '${e.key}=${e.value}',
-            ).join('\n')}\n';
+        '${(json['PKGINFO'] as Map<String, dynamic>).entries.map((e) => '${e.key}=${e.value}').join('\n')}\n';
     final installFileMap = {
       'post_install': postinstallScripts.join('\n\t'),
-      'post_upgrade':
-          postupgradeScripts.isNotEmpty ? postupgradeScripts.join('\n') : null,
+      'post_upgrade': postupgradeScripts.isNotEmpty
+          ? postupgradeScripts.join('\n')
+          : null,
       'post_remove': postuninstallScripts.join('\n'),
     }..removeWhere((key, value) => value == null);
 
     final installFile = installFileMap.entries
-        .map(
-          (e) => '${e.key}() {\n\t${e.value}\n}',
-        )
+        .map((e) => '${e.key}() {\n\t${e.value}\n}')
         .join('\n');
 
     final desktopFile = [
       '[Desktop Entry]',
       ...(json['DESKTOP'] as Map<String, dynamic>).entries.map(
-            (e) => '${e.key}=${e.value}',
-          ),
+        (e) => '${e.key}=${e.value}',
+      ),
     ].join('\n');
     final map = {
       'PKGINFO': pkginfoFile,
